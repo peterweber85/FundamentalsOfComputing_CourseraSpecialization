@@ -1,0 +1,22 @@
+Question 2
+
+- Yes, the expected value for every node is the same. It is n*p.
+
+- The distribution has a maximum at n*p and falls of on both sides.
+
+- No, they are not similiar. The citation graph is monotonically decreasing.
+
+Question 3
+
+n = 28000
+m =10
+
+Question 5
+
+- The in-degree distribution of the citation graph is similar to the DPA graph. They can be made almost equal when choosing the right parameters
+for the DPA graph. They are both monotonically decreasing, have a similar functional form, can be chosen to have similar number of edges and nodes.
+
+- The DPA graph can be explained with the phenomenon "six degrees of separation", the highest number of in-degrees is about 1/5 to 1/6 of the number of
+number of nodes. Additionally, there are very few nodes with very few edges. Therefore, every node can be connected to any other node over distance 6.
+
+- Yes, "six degrees of separation". See last two answers.

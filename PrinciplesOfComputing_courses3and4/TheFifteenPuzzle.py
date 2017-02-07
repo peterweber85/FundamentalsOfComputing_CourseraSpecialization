@@ -184,7 +184,6 @@ class Puzzle:
                     move_str += "r"								
                 for _ in range(int(math.fabs(delta[1]))-1):
                     move_str += circle_up_left
-                #move_to_curr_str += "ullddru"
                 move_str += "ld"
                        
             elif delta[1] < 0:
@@ -197,9 +196,7 @@ class Puzzle:
                     for _ in range(int(math.fabs(delta[0]))-1):
                         move_str += circle_left_down
                     move_str += "ld"
-           
-        # self.move_it(target_row, target_col, move_to_curr_tuple)        
-        # Move zero tile to the current_pos of target tile
+    
         self.update_puzzle(move_str)																	
         return move_str
                                     
@@ -208,7 +205,6 @@ class Puzzle:
         Solve tile in column zero on specified row (> 1)
         Updates puzzle and returns a move string
         """
-        # replace with your code
         assert self.lower_row_invariant(target_row, 0)
         
         circle_up_left = "ulldr"
@@ -252,8 +248,6 @@ class Puzzle:
             move_str += "r" * (self._width - 2)
             self.update_puzzle(move_str)
         return move_first_str + move_str
-        #self.update_puzzle()
-        #return final_str
 
     #############################################################
     # Phase two methods
@@ -264,7 +258,6 @@ class Puzzle:
         at the given column (col > 1)
         Returns a boolean
         """
-        # replace with your code
         if self._grid[0][target_col] != 0:
             return False
         elif 1 + 1 < self._height and target_col < self._height:
@@ -283,7 +276,6 @@ class Puzzle:
         at the given column (col > 1)
         Returns a boolean
         """
-        # replace with your code
         if self.lower_row_invariant(1,target_col) == False:
             return False
         for col in range(target_col + 1, self._width):
@@ -296,7 +288,6 @@ class Puzzle:
         Solve the tile in row zero at the specified column
         Updates puzzle and returns a move string
         """
-        # replace with your code
         assert self.row0_invariant(target_col)
         move_first_str = "ld"
         self.update_puzzle(move_first_str)
@@ -317,7 +308,6 @@ class Puzzle:
             move_str = "l" * delta
             move_str += "urrdl" * (delta - 1)
         
-        #print move_str
         move_str += "urdlurrdluldrruld"
         
         self.update_puzzle(move_str)
@@ -328,14 +318,10 @@ class Puzzle:
         Solve the tile in row one at the specified column
         Updates puzzle and returns a move string
         """
-        # replace with your code
-        
-        #self.update_puzzle(move_first_str)
         assert self.row1_invariant(target_col)
         curr_pos = self.current_position(1, target_col)
         delta = target_col - curr_pos[1]
         move_str = ""
-        #print delta
         
         if curr_pos[0] == 0:
             move_str += "l" * delta
@@ -358,7 +344,6 @@ class Puzzle:
         Solve the upper left 2x2 part of the puzzle
         Updates the puzzle and returns a move string
         """
-        # replace with your code
         move_str = ""
         if self.get_number(1,1) == 0:
             move_str += "ul"
@@ -370,8 +355,6 @@ class Puzzle:
         move_while_str = "drul"
         self.update_puzzle(move_str)
         while self.lower_row_invariant(0,0) == False:
-            #print Puzzle(self._height, self._width)
-            #print self.lower_row_invariant(0)
             move_str += move_while_str
             self.update_puzzle(move_while_str)
                         
@@ -382,24 +365,9 @@ class Puzzle:
         Generate a solution string for a puzzle
         Updates the puzzle and returns a move string
         """
-        # replace with your code#
-        #row, col = 2, 2
-        #self.solve_interior_tile(row,col)
-        #row, col = 2, 1
-        #self.solve_interior_tile(row,col)
         move_str = ""
         row = self._height - 1
         col = self._width - 1        
-        
-        #breaker = False
-        #for row in range(self._height - 1, -1, -1):
-            #for col in range(self._width - 1, -1, -1):
-                #if self._grid[row][col] != col + self._width * row:
-                    #start_row, start_col = row, col
-                    #breaker = True
-                    #break
-            #if breaker:
-                #break
         
         curr_pos_zero = self.current_position(0, 0)
         delta_0 = row - curr_pos_zero[0]
